@@ -5,8 +5,8 @@
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1280;
+const unsigned int SCR_HEIGHT = 720;
 
 const char *vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
@@ -18,7 +18,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"FragColor = vec4(1.0f,0.5f,0.2f,1.0f);\n"
+"FragColor = vec4(0.7f,0.8f,0.2f,1.0f);\n"
 "}\n\0";
 
 int main() {
@@ -28,7 +28,7 @@ int main() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGl", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGl", NULL, NULL);
 	if (window == NULL) {
 	 std::cout << "Failed to creat GLFW window" << std :: endl;
 	 glfwTerminate();
@@ -76,10 +76,10 @@ int main() {
 	glDeleteShader(fragmentShader);
 
 	float vertices[] = { 
-						0.5f,0.5f,0.0f,
-						0.5f,-0.5f,0.0f,
-						-0.5f,-0.5f,0.0f
-						-0.5f,0.5f,0.0f
+			0.5f,0.5f,0.0f,
+			0.5f,-0.5f,0.0f,
+			-0.5f,-0.5f,0.0f,
+			-0.5f,0.5f,0.0f
 	};
 
 	unsigned int indices[] = {
@@ -118,7 +118,7 @@ int main() {
 	glBindVertexArray(0);
 
 	#pragma endregion
-
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);//ÓÃÏßÀ´»­Í¼
 	while (!glfwWindowShouldClose(window)) {
 		processInput(window);
 
@@ -134,7 +134,7 @@ int main() {
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
+	
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteBuffers(1, &EBO);
