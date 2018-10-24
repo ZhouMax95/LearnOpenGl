@@ -10,15 +10,20 @@ const unsigned int SCR_HEIGHT = 720;
 
 const char *vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
+"out vec4 color;"
 "void main()\n"
 "{\n"
 "gl_Position = vec4(aPos.x,aPos.y,aPos.z,1.0);\n"
+"color = vec4(0.7f,0.8f,0.6f,1.0f);"
 "}\0";
-const char *fragmentShaderSource = "#version 330 core\n"
+const char *fragmentShaderSource = "#version 330 core\n" 
 "out vec4 FragColor;\n"
+"in vec4 color;"
+"uniform vec4 unColor;"
 "void main()\n"
 "{\n"
-"FragColor = vec4(0.7f,0.8f,0.2f,1.0f);\n"
+//"FragColor = vec4(0.7f,0.8f,0.2f,1.0f);\n"
+"FragColor = unColor;\n"
 "}\n\0";
 
 int main() {
@@ -120,12 +125,22 @@ int main() {
 	#pragma endregion
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);//用线来画图
 	while (!glfwWindowShouldClose(window)) {
+		//输入
 		processInput(window);
 
+		//渲染
+		//清除颜色缓存
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		//激活着色器程序
 		glUseProgram(shaderProgram);
+
+		float timeValue = glfwGetTime();
+		float greenValue = sin(timeValue) / 2.0f + 0.5f;
+		int vertexColorLocation = glGetUniformLocation(shaderProgram, "unColor");
+		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
 		glBindVertexArray(VAO);
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
