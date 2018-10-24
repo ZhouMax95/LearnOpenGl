@@ -30,7 +30,7 @@ int main() {
 		return -1;
 	}
 	//shader 参数表示路径
-	Shader ourShader("LearnOpenGL1_5Shader.vs", "LearnOpenGL1_5Shader.fs");
+	Shader ourShader("LearnOpenGL1_5Shader.vs","LearnOpenGL1_5Shader.fs");
 
 	float vertices[] = {
 		// positions         // colors
