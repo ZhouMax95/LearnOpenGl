@@ -127,15 +127,21 @@ https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/#
 	ourShader.setInt("ourTexture1", 1);
 
 	//矩阵
-	glm::mat4 trans;
+	/*glm::mat4 trans;
 	trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 	trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 0.5f));
 	unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
-	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));;
-	
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));;*/
 
 	while (!glfwWindowShouldClose(window))
-	{
+	{	
+
+		glm::mat4 trans;
+		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+		unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));;
+
 		//输入
 		processInput(window);
 		glUniform1f(glGetUniformLocation(ourShader.ID, "alpha"), mixValue);
@@ -152,6 +158,14 @@ https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/#
 		ourShader.use();
 		//glBindTexture(GL_TEXTURE_2D, texture); //这两个绑定在之前就已经绑定好了，不需要画三角形前再绑定，当然再绑定一次也不会出错。
 		//glBindVertexArray(VAO);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+		trans = glm::mat4(); 
+		trans = glm::translate(trans, glm::vec3(-0.5f, 0.5f, 0.0f));
+		float scaleAmout = sin(glfwGetTime());
+		trans = glm::scale(trans, glm::vec3(scaleAmout, scaleAmout, scaleAmout));
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &trans[0][0]);
+		
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		//交换缓冲区
