@@ -1,1 +1,5 @@
-﻿  LearnOpenGl.vcxproj -> E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe
+﻿  LearnOpenGL_1_7.cpp
+e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_1_7.cpp(50): warning C4102: “https”: 未引用的标签
+  LINK : 没有找到 E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe 或上一个增量链接没有生成它；正在执行完全链接
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  LearnOpenGl.vcxproj -> E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe
