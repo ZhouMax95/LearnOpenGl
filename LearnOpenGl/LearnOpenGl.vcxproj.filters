@@ -18,7 +18,10 @@
     <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="LearnOpenGL_16.cpp">
+    <ClCompile Include="std_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LearnOpenGL_1_6.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -27,6 +30,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
