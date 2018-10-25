@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.c" />
-    <ClCompile Include="LearnOpenGL_1_6.cpp" />
+    <ClCompile Include="LearnOpenGL_1_7.cpp" />
     <ClCompile Include="std_image.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -41,7 +41,7 @@ int main() {
 		-0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
 		-0.5f, 0.5f, 0.0f,   1.0f, 1.0f, 0.0f,  0.0f, 1.0f  
 	};
-
+https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/#
 	unsigned int indices[] = {
 		0,1,3,
 		1,2,3
@@ -59,7 +59,7 @@ int main() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	int width, height, nrChanels;
-	unsigned char *data = stbi_load("container.jpg", &width, &height, &nrChanels, 0);
+	unsigned char *data = stbi_load("Texture/container.jpg", &width, &height, &nrChanels, 0);
 	if (data)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -82,7 +82,7 @@ int main() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	stbi_set_flip_vertically_on_load(true);
-	data = stbi_load("awesomeface.png", &width, &height, &nrChanels, 0);
+	data = stbi_load("Texture/awesomeface.png", &width, &height, &nrChanels, 0);
 	if (data)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
