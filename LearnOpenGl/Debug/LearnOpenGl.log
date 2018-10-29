@@ -1,4 +1,10 @@
-﻿  LearnOpenGL_1_7.cpp
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_1_7.cpp(165): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_1_7.cpp(50): warning C4102: “https”: 未引用的标签
-  LearnOpenGl.vcxproj -> E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe
+﻿  LearnOpenGL_1_8.cpp
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(106): warning C4102: “https”: 未引用的标签
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(172): warning C4101: “EBO”: 未引用的局部变量
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(262): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(301): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(302): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(303): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(304): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_1_8.cpp(331): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
+  LearnOpenGl.vcxproj -> C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\Debug\LearnOpenGl.exe

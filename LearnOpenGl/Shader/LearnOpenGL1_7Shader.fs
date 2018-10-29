@@ -8,7 +8,6 @@ uniform sampler2D ourTexture;
 uniform sampler2D ourTexture1;
 uniform float alpha;
 
-void main()
 {
 	FragColor = mix(texture(ourTexture,TexCoord),
 	texture(ourTexture1,vec2(-TexCoord.x,TexCoord.y)),alpha);

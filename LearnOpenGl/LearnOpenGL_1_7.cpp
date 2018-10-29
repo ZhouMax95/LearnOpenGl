@@ -16,8 +16,6 @@ float mixValue = 0.1f;
 
 int main() {
 	
-	
-
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);

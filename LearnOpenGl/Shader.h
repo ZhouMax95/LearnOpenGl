@@ -2,7 +2,9 @@
 #define SHADER_H
 
 #include <glad/glad.h>
-
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <string>
 #include <fstream>
@@ -109,6 +111,11 @@ public:
 	void setFloat(const std::string &name, float value) const
 	{
 		glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+	}
+
+	void setMat4(const std::string &name, glm::mat4 &mat4) const {
+		unsigned int mat4Loc = glGetUniformLocation(ID, name.c_str());
+		glUniformMatrix4fv(mat4Loc, 1, GL_FALSE, &mat4[0][0]);
 	}
 
 

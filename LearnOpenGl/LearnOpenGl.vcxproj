@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{294B0292-7702-4CA2-A1CE-4DE92A80C537}</ProjectGuid>
     <RootNamespace>LearnOpenGl</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;D:\OpenGl_ThirdPartLibrary\Lib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;D:\OpenGl_ThirdPartLibrary\Lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Release;D:\OpenGl_ThirdPartLibrary\Lib\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Release;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Release;D:\OpenGl_ThirdPartLibrary\Lib\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -130,10 +130,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.c" />
-    <ClCompile Include="LearnOpenGL_1_7.cpp" />
+    <ClCompile Include="LearnOpenGL_1_8.cpp" />
     <ClCompile Include="std_image.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
