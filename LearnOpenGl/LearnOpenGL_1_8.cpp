@@ -60,7 +60,7 @@ int main() {
 	Shader ourShader("Shader/LearnOpenGL1_8Shader.vs", "Shader/LearnOpenGL1_8Shader.fs");
 
 	float vertices[] = {
-	  -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+	    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 		 0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
 		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
 		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
@@ -100,7 +100,7 @@ int main() {
 		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 		 0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 		-0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
 
 	};
 https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/#
@@ -181,7 +181,7 @@ https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/#
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
 	ourShader.use();
@@ -195,8 +195,7 @@ https://learnopengl-cn.github.io/01%20Getting%20started/06%20Textures/#
 	{		
 
 		glm::mat4 view = camera.GetViewMatrix();
-
-		view = glm::lookAt(cameraPos, cameraPos+cameraFront,cameraUp);
+		//view = glm::lookAt(cameraPos, cameraPos+cameraFront,cameraUp);
 
 		glm::mat4 projection;
 		projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
@@ -282,60 +281,32 @@ void processInput(GLFWwindow *window) {
 		}
 	}
 	float cameraSpeed = 0.05f;
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-		cameraPos += cameraSpeed * cameraFront;
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-		cameraPos -= cameraSpeed * cameraFront;
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp))*cameraSpeed;
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp))*cameraSpeed;
-	}
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		camera.ProcessKeyboard(FORWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		camera.ProcessKeyboard(BACKWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		camera.ProcessKeyboard(LEFT, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		camera.ProcessKeyboard(RIGHT, deltaTime);
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 
+	if (firstMouse)
+	{
+		lastX = xpos;
+		lastY = ypos;
+		firstMouse = false;
+	} 
 	float xoffset = xpos - lastX;
 	float yoffset = lastY - ypos;;
 	lastX = xpos;
 	lastY = ypos;
+	camera.ProcessMouseMovement(xoffset,yoffset);
 
-	float sensitivity = 0.1f;
-	xoffset *= sensitivity;
-	yoffset *= sensitivity;
-
-	yaw += xoffset;
-	pitch += yoffset;
-
-	if (pitch>89.0f)
-	{
-		pitch = 89.0f;
-	}
-	if (pitch<-89.0f)
-	{
-		pitch = -89.0f;
-	}
-	glm::vec3 front;
-	front.x = cos(glm::radians(yaw))*cos(glm::radians(pitch));
-	front.y = sin(glm::radians(pitch));
-	front.z = sin(glm::radians(yaw))*cos(glm::radians(pitch));
-	cameraFront = glm::normalize(front);
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
-	if (fov>=1.0f&&fov<=45.0f)
-	{
-		fov -= yoffset;
-	}
-	if (fov<=1.0f)
-	{
-		fov = 1.0f;
-	}
-	if (fov>=45.0f)
-	{
-		fov = 45.0f;
-	}
+	camera.ProcessMouseScroll(yoffset);
 }
