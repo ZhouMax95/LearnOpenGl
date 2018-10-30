@@ -37,7 +37,7 @@ public:
 
 	Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) :
 		Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM) {
-		Position = position;
+		Position = position;	
 		WorldUp = up;
 		Yaw = yaw;
 		Pitch = pitch;
@@ -54,7 +54,9 @@ public:
 	}
 
 	glm::mat4 GetViewMatrix() {
-		return glm::lookAt(Position, Position + Front, Up);;
+		return glm::lookAt(Position, Position + Front, Up);
+		//return calculate_lookAt_matrix(glm::vec3(Position), Position + Front, Up);
+
 	}
 
 	void ProcessKeyboard(Camera_Movement direction, float deltaTime) {
@@ -97,11 +99,36 @@ public:
 			Zoom = 45.0f;
 	}
 
+	glm::mat4 calculate_lookAt_matrix(glm::vec3 position, glm::vec3 target, glm::vec3 worldUp)
+	{		
+		glm::vec3 zaxis = glm::normalize(position - target);		
+		glm::vec3 xaxis = glm::normalize(glm::cross(glm::normalize(worldUp), zaxis));	
+		glm::vec3 yaxis = glm::cross(zaxis, xaxis);
+	
+		glm::mat4 translation; 
+		translation[3][0] = -position.x; 
+		translation[3][1] = -position.y;
+		translation[3][2] = -position.z;
+		glm::mat4 rotation;
+		rotation[0][0] = xaxis.x;
+		rotation[1][0] = xaxis.y;
+		rotation[2][0] = xaxis.z;
+		rotation[0][1] = yaxis.x;
+		rotation[1][1] = yaxis.y;
+		rotation[2][1] = yaxis.z;
+		rotation[0][2] = zaxis.x; 
+		rotation[1][2] = zaxis.y;
+		rotation[2][2] = zaxis.z;
+	
+		return rotation * translation; 
+	}
+	
+
 private:
 	void updateCameraVectors() {
 		glm::vec3 front;
 		front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-		front.y = sin(glm::radians(Pitch));
+		front.y = sin(glm::radians(Pitch));	
 		front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
 		Front = glm::normalize(front);
 	

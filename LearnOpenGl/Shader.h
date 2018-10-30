@@ -118,6 +118,11 @@ public:
 		glUniformMatrix4fv(mat4Loc, 1, GL_FALSE, &mat4[0][0]);
 	}
 
+	void setVec3(const std::string &name,float x,float y,float z)const
+	{
+		glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
+	}
+
 
 private:
 	void checkCompileErrors(GLuint shader, std::string type) {
