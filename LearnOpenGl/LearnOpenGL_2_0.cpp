@@ -18,7 +18,7 @@ void processInput(GLFWwindow* window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-Camera camera(glm::vec3(0.0f, 0.0f, -3.0f));
+Camera camera(glm::vec3(-2.4f, 2.6f, -4.0f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -134,6 +134,8 @@ int main() {
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
+	
+
 	//渲染循环
 	while (!glfwWindowShouldClose(window))
 	{
@@ -151,6 +153,7 @@ int main() {
 		lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
 		lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
 		lightingShader.setVec3("lightPos", lightPos);
+		lightingShader.setVec3("viewPos", camera.Position);
 
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 view = camera.GetViewMatrix();
@@ -175,6 +178,8 @@ int main() {
 
 		glBindVertexArray(lightVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//std::cout << "CameraPos:" << camera.Position.x << camera.Position.y << camera.Position.z << std::endl;
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();//检测各种触发条件，更新窗口状态，回调函数等
