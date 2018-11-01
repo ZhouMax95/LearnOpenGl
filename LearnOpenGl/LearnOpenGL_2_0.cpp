@@ -161,7 +161,7 @@ int main() {
 		lightingShader.setMat4("projection", projection);
 		lightingShader.setMat4("view", view);
 
-		glm::mat4 model;
+		glm::mat4 model; 
 		lightingShader.setMat4("model", model);
 
 		glBindVertexArray(cubeVAO);
@@ -170,6 +170,11 @@ int main() {
 		//设置光源cube的属性，创建并传入矩阵等，最后绘出cube
 		lampShader.use();
 		lampShader.setMat4("projection", projection);
+
+		lightPos.x = 1.0f + sin(glfwGetTime())*2.0f;
+		lightPos.y = sin(glfwGetTime() / 2.0f)*1.0f;
+		lightPos.z = sin(glfwGetTime() / 2.0f)*1.0f;
+
 		lampShader.setMat4("view", view);
 		model = glm::mat4();
 		model = glm::translate(model, lightPos);
