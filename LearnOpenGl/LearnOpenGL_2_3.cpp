@@ -143,18 +143,14 @@ int main() {
 
 	unsigned int diffuseMap = loadTexture("Texture/container2.png");
 	lightingShader.setInt("material.diffuse", 0);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, diffuseMap);
-
-
+	
 	unsigned int specularMap = loadTexture("Texture/container2_Spe.png");;
 	lightingShader.setInt("material.specular", 1);
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, diffuseMap);
-
+	
 	//渲染循环
 	while (!glfwWindowShouldClose(window))
 	{
+		
 		//计算deltaTime
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
@@ -167,11 +163,8 @@ int main() {
 		//设置cubeShader的属性，创建并传入矩阵等，最后绘出cube
 		lightingShader.use();
 		lightingShader.setVec3("viewPos", camera.Position);
-
 		
-
-		lightingShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f);
-		lightingShader.setFloat("material.shininess", 128.0f);
+		lightingShader.setFloat("material.shininess", 64.0f);
 
 		/*glm::vec3 lightColor;
 		lightColor.x = sin(glfwGetTime()*2.0f);
@@ -195,6 +188,12 @@ int main() {
 		glm::mat4 model;
 		lightingShader.setMat4("model", model);
 
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, diffuseMap);
+
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, specularMap);
+
 		glBindVertexArray(cubeVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -216,7 +215,6 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//std::cout << "CameraPos:" << camera.Position.x << camera.Position.y << camera.Position.z << std::endl;
-
 		glfwSwapBuffers(window);
 		glfwPollEvents();//检测各种触发条件，更新窗口状态，回调函数等
 	}
