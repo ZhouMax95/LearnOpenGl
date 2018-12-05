@@ -27,6 +27,8 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+
 int main() {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -55,7 +57,7 @@ int main() {
 
 	glEnable(GL_DEPTH_TEST);
 
-	Shader lightingShader("Shader/lightingShader2_4.vs", "Shader/lightingShader2_4.fs");
+	Shader lightingShader("Shader/lightingShader2_4.vs", "Shader/lightingShader2_4_1.fs");
 	Shader lampShader("Shader/lampShader2_4.vs", "Shader/lampShader2_4.fs");
 
 	float vertices[] = {
@@ -146,6 +148,11 @@ int main() {
 	lightingShader.setInt("material.diffuse", 0);
 	lightingShader.setInt("material.specular", 1);
 
+	lightingShader.setFloat("light.constant", 1.0f);
+	lightingShader.setFloat("light.linear", 0.009f);
+	lightingShader.setFloat("light.quadratic", 0.032f);
+
+
 	while (!glfwWindowShouldClose(window))
 	{
 		float currentFrame = glfwGetTime();
@@ -158,12 +165,20 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		lightingShader.use();
-		lightingShader.setVec3("light.direction", -0.2f, -0.1f, -0.3f);
+		lightingShader.setVec3("light.position",camera.Position);
+		lightingShader.setVec3("light.direction", camera.Front);
+		lightingShader.setFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
+		lightingShader.setFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));
 		lightingShader.setVec3("viewPos", camera.Position);
 
+		lightingShader.setFloat("light.constant", 1.0f);
+		lightingShader.setFloat("light.linear", 0.09f);
+		lightingShader.setFloat("light.quadratic", 0.032f);
 		lightingShader.setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
 		lightingShader.setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
 		lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+
+		
 
 		lightingShader.setFloat("material.shininess", 32.0f);
 
@@ -234,6 +249,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
 }
 
 void processInput(GLFWwindow* window) {
+	//std::cout <<"X: "<< camera.Position.x<<"Y: "<< camera.Position.y<<"Z: " << camera.Position.z<< std::endl;
 	if (glfwGetKey(window,GLFW_KEY_ESCAPE)==GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
