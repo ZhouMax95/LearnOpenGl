@@ -1,10 +1,20 @@
 ﻿  LearnOpenGL_2_4.cpp
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(158): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(232): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(233): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(237): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(238): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(240): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(241): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl_2_4.cpp(248): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
-  LearnOpenGl.vcxproj -> E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(165): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(189): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(190): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(197): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(198): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(205): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(206): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(213): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(214): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(222): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(223): warning C4305: “参数”: 从“double”到“float”截断
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(290): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(291): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(295): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(296): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(298): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(299): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl_2_4.cpp(306): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  LearnOpenGl.vcxproj -> C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\Debug\LearnOpenGl.exe
