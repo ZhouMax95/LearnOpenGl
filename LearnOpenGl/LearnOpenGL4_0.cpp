@@ -57,7 +57,7 @@ int main() {
 		return -1;
 	}
 	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_ALWAYS);
+	glDepthFunc(GL_LESS);
 
 	Shader shader("Shader/lightingShader4_0.vs", "Shader/lightingShader4_0.fs");
 
@@ -140,8 +140,8 @@ int main() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glBindVertexArray(0);
 
-	unsigned int cubeTexture = loadTexture("Textures/marble.jpg");
-	unsigned int floorTexture = loadTexture("Textures/marble.jpg");
+	unsigned int cubeTexture = loadTexture("Texture/marble.jpg");
+	unsigned int floorTexture = loadTexture("Texture/marble.jpg");
 
 	shader.use();
 	shader.setInt("texturel", 0);
@@ -185,8 +185,13 @@ int main() {
 		glfwPollEvents();
 
 	}
+	glDeleteVertexArrays(1, &cubeVAO);
+	glDeleteVertexArrays(1, &planeVAO);
+	glDeleteBuffers(1, &cubeVBO);
+	glDeleteBuffers(1, &planeVBO);
 
-
+	glfwTerminate();
+	return 0;
 }
 
 
