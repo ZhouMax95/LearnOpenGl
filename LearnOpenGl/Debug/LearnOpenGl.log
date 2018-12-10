@@ -1,1 +1,14 @@
+<<<<<<< HEAD
 ﻿LINK : fatal error LNK1104: 无法打开文件“assimp-vc140-mt.lib”
+=======
+﻿  LearnOpenGL3_0.cpp
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(131): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(183): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(184): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(188): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(189): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(191): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(192): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\learnopengl3_0.cpp(199): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  LearnOpenGl.vcxproj -> C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\Debug\LearnOpenGl.exe
+>>>>>>> d2b21b1c84c4af1e2e0df803480956b901acdf44
