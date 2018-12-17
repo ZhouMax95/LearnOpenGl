@@ -56,6 +56,8 @@ int main() {
 		cout << "Failed to initialize GLAD" << endl;
 		return -1;
 	}
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_DEPTH_TEST);
 	//glDepthFunc(GL_ALWAYS);
 	glDepthFunc(GL_LESS);
@@ -63,7 +65,7 @@ int main() {
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
-	Shader shader("Shader/lightingShader4_1.vs", "Shader/lightingShader4_1.fs");
+	Shader shader("Shader/lightingShader4_1.vs", "Shader/lightingShader4_2.fs");
 	Shader singleColorShader("Shader/SingleColorShader4_1.vs", "Shader/SingleColorShader4_1.fs");
 
 	float cubeVertices[] = {
@@ -121,6 +123,17 @@ int main() {
 		 5.0f, -0.5f, -5.0f,  2.0f, 2.0f
 	};
 
+	float transparentVertices[] = {
+		// positions         // texture Coords (swapped y coordinates because texture is flipped upside down)
+		0.0f,  0.5f,  0.0f,  0.0f,  0.0f,
+		0.0f, -0.5f,  0.0f,  0.0f,  1.0f,
+		1.0f, -0.5f,  0.0f,  1.0f,  1.0f,
+
+		0.0f,  0.5f,  0.0f,  0.0f,  0.0f,
+		1.0f, -0.5f,  0.0f,  1.0f,  1.0f,
+		1.0f,  0.5f,  0.0f,  1.0f,  0.0f
+	};
+
 	unsigned int cubeVAO, cubeVBO;
 	glGenVertexArrays(1, &cubeVAO);
 	glGenBuffers(1, &cubeVBO);
@@ -145,8 +158,30 @@ int main() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glBindVertexArray(0);
 
+	unsigned int transparentVAO, transparentVBO;
+	glGenVertexArrays(1, &transparentVAO);
+	glGenBuffers(1, &transparentVBO);
+	glBindVertexArray(transparentVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, transparentVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(transparentVertices), transparentVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	glBindVertexArray(0);
+
 	unsigned int cubeTexture = loadTexture("Texture/marble.jpg");
 	unsigned int floorTexture = loadTexture("Texture/marble.jpg");
+	unsigned int transparetTexture = loadTexture("Texture/window.png");
+
+	vector<glm::vec3> vegetation
+	{
+		glm::vec3(-1.5f, 0.0f, -0.48f),
+		glm::vec3(1.5f, 0.0f, 0.51f),
+		glm::vec3(0.0f, 0.0f, 0.7f),
+		glm::vec3(-0.3f, 0.0f, -2.3f),
+		glm::vec3(0.5f, 0.0f, -0.6f)
+	};
 
 	shader.use();
 	shader.setInt("texturel", 0);
@@ -172,6 +207,18 @@ int main() {
 		shader.use();
 		shader.setMat4("view", view);
 		shader.setMat4("projection", projection);
+
+		glBindVertexArray(transparentVAO);
+		glBindTexture(GL_TEXTURE_2D, transparetTexture);
+		for (GLuint i = 0; i < vegetation.size(); i++)
+		{
+			model = glm::mat4();
+			model = glm::translate(model, vegetation[i]);
+			shader.setMat4("model", model);
+			glDrawArrays(GL_TRIANGLES, 0, 6);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		}
 
 		glStencilMask(0x00);
 		glBindVertexArray(planeVAO);
