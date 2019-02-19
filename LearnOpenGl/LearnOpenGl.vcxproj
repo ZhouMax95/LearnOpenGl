@@ -131,10 +131,12 @@
   <ItemGroup>
     <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.c" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Shader_2DGame.cpp" />
     <ClCompile Include="std_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="Shader_2DGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

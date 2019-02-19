@@ -1,10 +1,1 @@
-﻿  LearnOpenGL4_5.cpp
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(225): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(314): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(315): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(319): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(320): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(322): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(323): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-e:\visualstudioprojects\learnopengl\learnopengl\learnopengl4_5.cpp(332): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
-  LearnOpenGl.vcxproj -> E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.Cpp.WindowsSDK.targets(46,5): error MSB8036: 找不到 Windows SDK 版本10.0.17134.0。请安装所需的版本的 Windows SDK 或者在项目属性页中或通过右键单击解决方案并选择“重定解决方案目标”来更改 SDK 版本。
