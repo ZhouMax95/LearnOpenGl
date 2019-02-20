@@ -1,5 +1,9 @@
 #include "Shader_2DGame.h"
 #include <iostream>
+#include <string>
+
+using namespace std;
+
 
 Shader &Shader::Use() {
 	glUseProgram(this->ID);
@@ -9,10 +13,18 @@ Shader &Shader::Use() {
 void Shader::Compile(const GLchar *vertexSource, const GLchar *frameSource, const GLchar *geometrySource) {
 	GLuint sVertex, sFrament, gShader;
 	sVertex = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(sVertex, 1, &vertexSource, NULL);
+	glCompileShader(sVertex);
+	
+	const char *s = "jj";
+	std::string str;
+	str = s;
+
+	checkCompileErrors(sVertex,s);
 
 }
 
-void Shader::checkCompileErrors(GLuint object, std::string type) {
+void Shader::checkCompileErrors(GLuint object,std::string type) {
 	GLint success;
 	GLchar infoLog[1024];
 	if (type!="PROGRAM")
