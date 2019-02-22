@@ -27,7 +27,7 @@ public:
 		void SetMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader = false);
 
 private:
-	void checkCompileErrors(GLuint object, std::string type);
+	void checkCompileErrors(GLuint object,std::string type);
 };
 
 #endif

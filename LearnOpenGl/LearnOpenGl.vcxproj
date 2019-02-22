@@ -21,19 +21,19 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{294B0292-7702-4CA2-A1CE-4DE92A80C537}</ProjectGuid>
     <RootNamespace>LearnOpenGl</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -69,7 +69,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\ucrt;C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;D:\OpenGl_ThirdPartLibrary\Lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -131,12 +131,16 @@
   <ItemGroup>
     <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.c" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Shader_2DGame.cpp" />
     <ClCompile Include="std_image.cpp" />
+    <ClCompile Include="Texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Shader_2DGame.h" />
+    <ClInclude Include="texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

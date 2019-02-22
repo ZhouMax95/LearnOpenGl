@@ -12,18 +12,25 @@ Shader &Shader::Use() {
 
 void Shader::Compile(const GLchar *vertexSource, const GLchar *frameSource, const GLchar *geometrySource) {
 	GLuint sVertex, sFrament, gShader;
+
 	sVertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(sVertex, 1, &vertexSource, NULL);
-	glCompileShader(sVertex);
+	glCompileShader(sVertex);	
+	checkCompileErrors(sVertex, "VERTEX"); 
 	
-	const char *s = "jj";
-	std::string str;
-	str = s;
+	sFrament = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(sFrament, 1, &frameSource, NULL);
+	glCompileShader(sFrament);
+	checkCompileErrors(sFrament,"FRAGMENT");
+	
+	if (geometrySource!=nullptr)
+	{
+		gShader = glCreateShader(GL_GEOMETRY_SHADER);
+	}
 
-	checkCompileErrors(sVertex,s);
 
 }
-
+ 
 void Shader::checkCompileErrors(GLuint object,std::string type) {
 	GLint success;
 	GLchar infoLog[1024];
