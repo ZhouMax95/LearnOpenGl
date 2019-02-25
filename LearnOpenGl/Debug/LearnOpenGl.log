@@ -1,3 +1,3 @@
 ﻿  MainProgram.cpp
-c:\users\lnkun\documents\visual studio 2015\projects\learnopengl\learnopengl\mainprogram.cpp(47): warning C4244: “初始化”: 从“double”转换到“GLfloat”，可能丢失数据
-  LearnOpenGl.vcxproj -> C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\Debug\LearnOpenGl.exe
+e:\visualstudioprojects\learnopengl\learnopengl\mainprogram.cpp(48): warning C4244: “初始化”: 从“double”转换到“GLfloat”，可能丢失数据
+  LearnOpenGl.vcxproj -> E:\VisualStudioProjects\LearnOpenGl\Debug\LearnOpenGl.exe

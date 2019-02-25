@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{294B0292-7702-4CA2-A1CE-4DE92A80C537}</ProjectGuid>
     <RootNamespace>LearnOpenGl</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -69,7 +69,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\ucrt;C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\VisualStudioProjects\LearnOpenGl\LearnOpenGl;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10586.0\ucrt;C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Include;D:\OpenGl_ThirdPartLibrary\Include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary\Lib\Debug;D:\OpenGl_ThirdPartLibrary\Lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,7 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\VisualStudioProjects\LearnOpenGl\LearnOpenGl;C:\Users\lnkun\Documents\Visual Studio 2015\Projects\LearnOpenGl\LearnOpenGl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\VisualStudioProjects\LearnOpenGl\OpenGl_ThirdPartLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -129,9 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.cpp">
-      <FileType>CppClass</FileType>
-    </ClCompile>
+    <ClCompile Include="..\OpenGl_ThirdPartLibrary\glad.c" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="MainProgram.cpp" />
     <ClCompile Include="ResourceManager.cpp" />

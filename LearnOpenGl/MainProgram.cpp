@@ -4,6 +4,7 @@
 #include <game.h>
 #include <ResourceManager.h>
 #include <iostream>
+#include <KHR/khrplatform.h>
 
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
@@ -22,12 +23,12 @@ int main(int argc,char *argv[]){
 	GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Breakout", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 
-	if (gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
-
+	
 	glfwSetKeyCallback(window, key_callback);
 
 	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);

@@ -33,7 +33,7 @@
     <ClCompile Include="MainProgram.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="D:\OpenGl_ThirdPartLibrary\glad.cpp">
+    <ClCompile Include="..\OpenGl_ThirdPartLibrary\glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
