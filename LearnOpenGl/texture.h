@@ -5,6 +5,7 @@
 
 #include <glad/glad.h>
 class Texture2D {
+public:
 	GLuint ID;
 	GLuint Width, Height;
 	GLuint internal_Format;
