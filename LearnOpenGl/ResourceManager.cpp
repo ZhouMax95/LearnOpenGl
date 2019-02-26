@@ -3,7 +3,7 @@
 #include <sstream>
 #include <fstream>
 
-#include <stb_image.h>
+#include <stb_image.h> 
 
 std::map<std::string, Texture2D> ResourceManager::Textures;
 std::map<std::string, Shader> ResourceManager::Shaders;
@@ -55,8 +55,9 @@ Shader ResourceManager::loadShaderFromFile(const GLchar *vShaderFile, const GLch
 			std::ifstream geometryShaderFile(gShaderFile);
 			std::stringstream gShaderStream;
 			gShaderStream << geometryShaderFile.rdbuf();
-			geometryCode = gShaderStream.str();
+			geometryCode = gShaderStream.str();			
 		}
+		
 	}
 	catch(std::exception e)
 	{
@@ -72,7 +73,21 @@ Shader ResourceManager::loadShaderFromFile(const GLchar *vShaderFile, const GLch
 
 Texture2D ResourceManager::loadTextureFromFile(const GLchar *file, GLboolean alpha) {
 	Texture2D texture;
-	/*if (alpha)
+	int width, height, nrComponent;
+	unsigned char* image = stbi_load(file, &width, &height, &nrComponent, 0);
+	if (nrComponent==3)
+	{
+		
+		texture.internal_Format = GL_RGB;
+		texture.Image_Format = GL_RGB;
+	}
+	else if (nrComponent == 4)
+	{		
+		texture.internal_Format = GL_RGBA;
+		texture.Image_Format = GL_RGBA;
+	}
+	/*
+	if (alpha)
 	{
 		texture.internal_Format = GL_RGBA;
 		texture.Image_Format = GL_RGBA;
@@ -82,19 +97,6 @@ Texture2D ResourceManager::loadTextureFromFile(const GLchar *file, GLboolean alp
 		texture.internal_Format = GL_RGB;
 		texture.Image_Format = GL_RGB;
 	}*/
-	int width, height, nrComponent;
-	unsigned char* image = stbi_load(file, &width, &height, &nrComponent, 0);
-	if (nrComponent==3)
-	{
-		texture.internal_Format = GL_RGB;
-		texture.Image_Format = GL_RGB;
-	}
-	else if (nrComponent == 4)
-	{
-		texture.internal_Format = GL_RGBA;
-		texture.Image_Format = GL_RGBA;
-	}
-
 	texture.Generate(width, height, image);
 	stbi_image_free(image);
 	return texture;

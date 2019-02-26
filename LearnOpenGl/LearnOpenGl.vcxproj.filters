@@ -36,6 +36,9 @@
     <ClCompile Include="..\OpenGl_ThirdPartLibrary\glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="sprite_renderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
@@ -48,6 +51,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite_renderer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

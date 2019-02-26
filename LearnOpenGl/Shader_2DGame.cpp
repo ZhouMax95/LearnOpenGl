@@ -1,4 +1,4 @@
-#include "Shader_2DGame.h"
+#include <Shader_2DGame.h>
 #include <iostream>
 #include <string>
 
@@ -10,42 +10,41 @@ Shader &Shader::Use() {
 	return *this;
 }
 
+
+
 void Shader::Compile(const GLchar *vertexSource, const GLchar *frameSource, const GLchar *geometrySource) {
 	GLuint sVertex, sFragment, gShader;
-
+	
 	sVertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(sVertex, 1, &vertexSource, NULL);
-	glCompileShader(sVertex);	
-	checkCompileErrors(sVertex, "VERTEX"); 
-	
+	glCompileShader(sVertex);
+	checkCompileErrors(sVertex, "VERTEX");
+
 	sFragment = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(sFragment, 1, &frameSource, NULL);
 	glCompileShader(sFragment);
-	checkCompileErrors(sFragment,"FRAGMENT");
+	checkCompileErrors(sFragment, "FRAGMENT");
 	
-	if (geometrySource!=nullptr)
+	if (geometrySource != nullptr)
 	{
 		gShader = glCreateShader(GL_GEOMETRY_SHADER);
 		glShaderSource(gShader, 1, &geometrySource, NULL);
 		glCompileShader(gShader);
 		checkCompileErrors(gShader, "GEOMETRY");
 	}
-
+	
 	this->ID = glCreateProgram();
 	glAttachShader(this->ID, sVertex);
 	glAttachShader(this->ID, sFragment);
-	if (geometrySource!=nullptr)
-	{
+	if (geometrySource != nullptr)
 		glAttachShader(this->ID, gShader);
-	}
 	glLinkProgram(this->ID);
 	checkCompileErrors(this->ID, "PROGRAM");
+	
 	glDeleteShader(sVertex);
 	glDeleteShader(sFragment);
-	if (geometrySource!=nullptr)
-	{
+	if (geometrySource != nullptr)
 		glDeleteShader(gShader);
-	}	
 }
  
 void Shader::SetFloat(const GLchar *name, GLfloat value, GLboolean useShader)

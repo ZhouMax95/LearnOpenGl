@@ -1,8 +1,8 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <game.h>
-#include <ResourceManager.h>
+#include "game.h"
+#include "ResourceManager.h"
 #include <iostream>
 #include <KHR/khrplatform.h>
 
@@ -21,6 +21,7 @@ int main(int argc,char *argv[]){
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Breakout", nullptr, nullptr);
+	
 	glfwMakeContextCurrent(window);
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -59,6 +60,7 @@ int main(int argc,char *argv[]){
 		Breakout.Render();
 
 		glfwSwapBuffers(window);
+		
 	}
 
 	ResourceManager::Clear();
